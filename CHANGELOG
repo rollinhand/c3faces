@@ -1,0 +1,7 @@
+# C3Faces Changelog
+This is the official changelog for C3Faces JSF library.
+
+## 1.0
+This is the first official release of C3Faces as forked version from Marin Linha.
+Changes are done on sources to release it under Apache 2.0 license and c3.js was
+changed to version 0.4.18.
