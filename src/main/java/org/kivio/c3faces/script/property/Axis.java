@@ -45,7 +45,6 @@ public class Axis extends ObjectBlock {
     private Integer heightY;
 
     public enum Type {
-
         TIMESERIES, CATEGORY, INDEXED
     }
 

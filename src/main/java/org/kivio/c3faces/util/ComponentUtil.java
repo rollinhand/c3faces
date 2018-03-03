@@ -23,14 +23,14 @@ package org.kivio.c3faces.util;
 public final class ComponentUtil {
 
     /**
-     * Tries to parse specified object to boolean. If object is null, returns FALSE.
+     * Tries to parse specified object to boolean. If object is null, returns null.
      *
      * @param o Object to be parsed
      * @return Parsed object or null
      */
     public static Boolean parseBoolean(Object o) {
         if (o == null) {
-            return Boolean.FALSE;
+            return null;
         }
         return Boolean.parseBoolean((String) o);
     }
