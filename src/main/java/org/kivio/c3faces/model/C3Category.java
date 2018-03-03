@@ -1,5 +1,5 @@
 /**
- Copyright 2015 Martin Linha
+ Copyright 2018 Björn Berg
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,29 +13,28 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  **/
-package org.kivio.c3faces.constants;
+package org.kivio.c3faces.model;
+
+import java.util.*;
 
 /**
- * Contains enumeration of actual chart types provided by C3.js.
+ * This class allows to define categories for the x or y axis.
  *
- * @author Martin Linha
+ * @author Bjoern Berg, rollin.hand@gmx.de
+ * @since 2018-01-21
  */
-public enum ChartType {
+public class C3Category {
+    private final Set<String> categories;
 
-    LINE("line"), SPLINE("spline"), STEP("step"), AREA("area"), AREASPLINE("area-spline"),
-    AREASTEP("area-step"), BAR("bar"), SCATTER("scatter"), PIE("pie"), DONUT("donut"), GAUGE("gauge");
-
-    private String name;
-
-    ChartType(String name) {
-        this.name = name;
+    public C3Category(String[] input) {
+        this(Arrays.asList(input));
     }
 
-    public String getName() {
-        return name;
+    public C3Category(List<String> input) {
+        categories = Collections.unmodifiableSet(new LinkedHashSet<>(input));
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Set<String> getValues() {
+        return categories;
     }
 }

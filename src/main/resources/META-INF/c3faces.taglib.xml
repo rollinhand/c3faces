@@ -972,4 +972,93 @@
             <type>java.lang.Integer</type>
         </attribute>
     </tag>
+    <tag>
+        <tag-name>axes</tag-name>
+        <description>Defines the axis definition.</description>
+        <component>
+            <component-type>org.kivio.c3faces.component.property.AxesProperty</component-type>
+        </component>
+        <attribute>
+            <description>Switch x and y axis position.</description>
+            <name>rotated</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+    </tag>
+    <tag>
+        <tag-name>axisX</tag-name>
+        <description>Defines attributes for the X axis.</description>
+        <component>
+            <component-type>org.kivio.c3faces.component.property.AxisXProperty</component-type>
+        </component>
+        <attribute>
+            <description>Show or hide x axis.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Set type of x axis.</description>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Set how to treat the timezone of x values.</description>
+            <name>localtime</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Set category names on category axis.
+                This must be an array that includes category names in string.</description>
+            <name>categories</name>
+            <required>false</required>
+            <type>org.kivio.c3faces.model.C3Category</type>
+        </attribute>
+        <attribute>
+            <description>Set height of x axis.</description>
+            <name>height</name>
+            <required>false</required>
+            <type>java.lang.Integer</type>
+        </attribute>
+    </tag>
+    <tag>
+        <tag-name>axisY</tag-name>
+        <description>Defines attributes for the Y axis.</description>
+        <component>
+            <component-type>org.kivio.c3faces.component.property.AxisYProperty</component-type>
+        </component>
+        <attribute>
+            <description>Show or hide y axis.</description>
+            <name>show</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Set type of y axis.</description>
+            <name>type</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <description>Set how to treat the timezone of y values.</description>
+            <name>localtime</name>
+            <required>false</required>
+            <type>java.lang.Boolean</type>
+        </attribute>
+        <attribute>
+            <description>Set category names on category axis.
+                This must be an array that includes category names in string.</description>
+            <name>categories</name>
+            <required>false</required>
+            <type>org.kivio.c3faces.model.C3Category</type>
+        </attribute>
+        <attribute>
+            <description>Set height of y axis.</description>
+            <name>height</name>
+            <required>false</required>
+            <type>java.lang.Integer</type>
+        </attribute>
+    </tag>
 </facelet-taglib> 

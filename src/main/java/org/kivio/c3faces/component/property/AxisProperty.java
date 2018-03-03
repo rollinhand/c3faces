@@ -1,5 +1,5 @@
 /**
- Copyright 2015 Martin Linha
+ Copyright 2018 Björn Berg
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -21,18 +21,21 @@ import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
 /**
- * This class allows to declare visual property of type org.kivio.c3faces.script.property.Region in facelet.
+ * This class allows to declare if axis should be rotated or not. It is also
+ * the top class for {@link AxisXProperty} and {@link AxisYProperty}.
  *
- * @author Martin Linha
+ * It is an outer class around.
+ *
+ * @author Björn Berg, rollin.hand@gmx.de
+ * @since 2018-01-21
  */
-@FacesComponent("org.kivio.c3faces.component.property.RegionProperty")
-
-public class RegionProperty extends UIComponentBase {
-
-    public static final String ATTR_AXIS = "axis";
-    public static final String ATTR_START = "start";
-    public static final String ATTR_END = "end";
-    public static final String ATTR_CSS_CLASS = "cssClass";
+@FacesComponent("org.kivio.c3faces.component.property.AxesProperty")
+public class AxisProperty extends UIComponentBase {
+    public static final String ATTR_SHOW = "show";
+    public static final String ATTR_TYPE = "type";
+    public static final String ATTR_CATEGORIES = "categories";
+    public static final String ATTR_LOCALTIME = "localtime";
+    public static final String ATTR_HEIGHT = "height";
 
     @Override
     public String getFamily() {

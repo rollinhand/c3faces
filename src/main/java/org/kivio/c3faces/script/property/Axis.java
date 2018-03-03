@@ -30,7 +30,7 @@ import java.util.Set;
  */
 public class Axis extends ObjectBlock {
 
-    public static String NAME = "axis";
+    private static final String NAME = "axis";
 
     private Boolean rotated;
     private Boolean showX;
@@ -80,7 +80,7 @@ public class Axis extends ObjectBlock {
                 obj.addChild(new ValueBlock("show", showX));
             }
             if (typeX != null) {
-                obj.addChild(new ValueBlock("type", typeX.name().toLowerCase()));
+                obj.addChild(new ValueBlock("type", typeX.name().toLowerCase(), true));
             }
             if (categoriesX != null) {
                 obj.addChild(new ArrayBlock("categories", JSTools.commaSeparatedStringsQuoted(categoriesX)));
@@ -102,7 +102,7 @@ public class Axis extends ObjectBlock {
                 obj.addChild(new ValueBlock("show", showY));
             }
             if (typeY != null) {
-                obj.addChild(new ValueBlock("type", typeY.name().toLowerCase()));
+                obj.addChild(new ValueBlock("type", typeY.name().toLowerCase(), true));
             }
             if (categoriesY != null) {
                 obj.addChild(new ArrayBlock("categories", JSTools.commaSeparatedStringsQuoted(categoriesY)));

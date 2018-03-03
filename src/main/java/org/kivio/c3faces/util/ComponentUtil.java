@@ -20,17 +20,17 @@ package org.kivio.c3faces.util;
  *
  * @author Martin Linha
  */
-public class ComponentUtil {
+public final class ComponentUtil {
 
     /**
-     * Tries to parse specified object to boolean. If object is null, returns null.
+     * Tries to parse specified object to boolean. If object is null, returns FALSE.
      *
      * @param o Object to be parsed
      * @return Parsed object or null
      */
     public static Boolean parseBoolean(Object o) {
         if (o == null) {
-            return null;
+            return Boolean.FALSE;
         }
         return Boolean.parseBoolean((String) o);
     }
@@ -79,4 +79,6 @@ public class ComponentUtil {
             return null;
         }
     }
+
+    private ComponentUtil() {}
 }

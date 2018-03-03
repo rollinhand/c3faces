@@ -1,5 +1,5 @@
 /**
- Copyright 2015 Martin Linha
+ Copyright 2018 Björn Berg
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -15,23 +15,16 @@
  **/
 package org.kivio.c3faces.component.property;
 
-import org.kivio.c3faces.constants.Family;
-
-import javax.faces.component.UIComponentBase;
+import javax.faces.component.FacesComponent;
 
 /**
- * This class allows to declare visual property of type org.kivio.c3faces.script.property.GridProperties in facelet.
+ * This class declares some options options for the X axis. It should
+ * be declared inside {@link AxisProperty}.
  *
- * @author Martin Linha
+ * @author Björn Berg, rollin.hand@gmx.de
+ * @since 2018-01-21
  */
-public class GridProperty extends UIComponentBase {
-
-    public static final String ATTR_VALUE = "value";
-    public static final String ATTR_TEXT = "text";
-
-    @Override
-    public String getFamily() {
-        return Family.PROPERTY.toString();
-    }
+@FacesComponent("org.kivio.c3faces.component.property.AxisYProperty")
+public class AxisYProperty extends AxisProperty {
 
 }

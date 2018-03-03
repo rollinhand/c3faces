@@ -15,6 +15,7 @@
  **/
 package org.kivio.c3faces.component.property;
 
+import org.kivio.c3faces.constants.Family;
 import org.kivio.c3faces.script.Property;
 import javax.faces.component.UIComponentBase;
 
@@ -39,7 +40,7 @@ public abstract class C3Property extends UIComponentBase {
 
     @Override
     public String getFamily() {
-        return "org.kivio.c3faces.component.property";
+        return Family.PROPERTY.toString();
     }
 
     /**
