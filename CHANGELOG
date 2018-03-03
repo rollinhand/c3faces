@@ -1,6 +1,19 @@
 # C3Faces Changelog
 This is the official changelog for C3Faces JSF library.
 
+## 1.1
+Added support for axis of type category. Use the new tags _axes_, _axisX_ and _axisY_ for
+a clean design of your axis. You can use the following attributes on axisX and axisY:
+
+- use _show_ with parameter false to hide the X- or Y-axis.
+- use _type_ with parameter _indexed_ or _category_ to define the axis type.
+- use _categories_ with an array of your defined category names. This has only an effect if _type_ is _category_.
+- use _height_ to adjust the height of the axis.
+- _localtime_ is supported by defining with values false or true. But the attribute has currently no effect.
+localtime will be supported in an upcoming release.
+
+Have a look at the official [showcase](http://c3faces.kivio.org) for more details on using C3Faces.
+
 ## 1.0
 This is the first official release of C3Faces as forked version from Marin Linha.
 Changes are done on sources to release it under Apache 2.0 license and c3.js was
