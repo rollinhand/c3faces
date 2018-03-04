@@ -2,3 +2,5 @@
 /.project
 /faces-config.NavData
 /LICENSE_HEADER.txt
+/.idea
+*.iml

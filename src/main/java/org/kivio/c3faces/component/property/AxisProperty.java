@@ -29,7 +29,6 @@ import javax.faces.component.UIComponentBase;
  * @author Björn Berg, rollin.hand@gmx.de
  * @since 2018-01-21
  */
-@FacesComponent("org.kivio.c3faces.component.property.AxesProperty")
 public class AxisProperty extends UIComponentBase {
     public static final String ATTR_SHOW = "show";
     public static final String ATTR_TYPE = "type";
