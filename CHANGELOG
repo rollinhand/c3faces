@@ -1,6 +1,9 @@
 # C3Faces Changelog
 This is the official changelog for C3Faces JSF library.
 
+## 1.2
+Bugfix for categories
+
 ## 1.1
 Added support for axis of type category. Use the new tags _axes_, _axisX_ and _axisY_ for
 a clean design of your axis. You can use the following attributes on axisX and axisY:

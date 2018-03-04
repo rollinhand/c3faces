@@ -11,7 +11,7 @@ software is as easy as with every other Maven dependency:
 <dependency>
    <groupId>org.kivio</groupId>
    <artifactId>C3Faces</artifactId>
-   <version>1.1</version>
+   <version>1.2</version>
 </dependency>
 ```
 
