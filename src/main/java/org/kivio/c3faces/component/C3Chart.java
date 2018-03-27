@@ -64,7 +64,6 @@ public abstract class C3Chart extends UIInput implements ClientBehaviorHolder {
 
     // Components request-resist attributes ------------------------------------------------------------------
     private enum PropertyKeys {
-
         data, cssClass, style, componentProperties, lastGeneratedScript, c3manager
     }
 

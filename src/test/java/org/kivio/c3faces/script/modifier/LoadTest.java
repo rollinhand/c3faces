@@ -13,6 +13,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.kivio.c3faces.style.C3Color;
 
 /**
  *
@@ -40,12 +41,12 @@ public class LoadTest {
         data.setDataSets(new LinkedHashSet<>(Arrays.asList(c3ViewDataSet)));
         data.setChartType(ChartType.BAR.getName());
 
-        c3ViewDataSet.setColor("yellow");
+        c3ViewDataSet.setColor(C3Color.WARM_YELLOW);
         c3ViewDataSet.setName("new name");
 
         load.getScript("chart", 500);
 
-        assertEquals(StringUtils.deleteWhitespace("setTimeout(function () {chart.load({columns: [['" + c3ViewDataSet.getId() + "', 1, 2, 3, 4, 5]]})}, 500); chart.data.colors({" + c3ViewDataSet.getId() + ": 'yellow'}); chart.data.names({" + c3ViewDataSet.getId() + ": 'new name'}); setTimeout(function () {chart.transform('bar')}, 1000);"),
+        assertEquals(StringUtils.deleteWhitespace("setTimeout(function () {chart.load({columns: [['" + c3ViewDataSet.getId() + "', 1, 2, 3, 4, 5]]})}, 500); chart.data.colors({" + c3ViewDataSet.getId() + ": '#ffc000'}); chart.data.names({" + c3ViewDataSet.getId() + ": 'new name'}); setTimeout(function () {chart.transform('bar')}, 1000);"),
                 StringUtils.deleteWhitespace(load.getScript("chart", 500)));
     }
 }

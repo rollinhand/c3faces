@@ -22,6 +22,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.kivio.c3faces.style.C3Color;
 
 /**
  * Class represents view specific attributes of data sets (series). It contains color, name and chart type rendered on client. Changes made to this
@@ -42,7 +43,7 @@ public class C3ViewDataSet implements Serializable {
     private final String id;
 
     private List<ChangeListener> listeners = new ArrayList<>();
-    private String color;
+    private C3Color color;
     private String name;
     private String type;
     private C3DataSet dataSet;
@@ -73,6 +74,17 @@ public class C3ViewDataSet implements Serializable {
      * @param color Color of data series
      */
     public C3ViewDataSet(String name, C3DataSet dataSet, String color) {
+        this(name, dataSet, new C3Color(color));
+    }
+
+    /**
+     * Constructor which also creates and sets unique id.
+     *
+     * @param name Name to show on chart
+     * @param dataSet Data series to show on chart
+     * @param color Color of data series
+     */
+    public C3ViewDataSet(String name, C3DataSet dataSet, C3Color color) {
         this.name = name;
         this.dataSet = dataSet;
         this.color = color;
@@ -112,7 +124,7 @@ public class C3ViewDataSet implements Serializable {
      *
      * @return Color for data series which will be shown on chart
      */
-    public String getColor() {
+    public C3Color getColor() {
         return color;
     }
 
@@ -122,6 +134,15 @@ public class C3ViewDataSet implements Serializable {
      * @param color Color to be shown on chart
      */
     public void setColor(String color) {
+        setColor(new C3Color(color));
+    }
+
+    /**
+     * Sets color for data series which will be shown on chart. Fires corresponding event.
+     *
+     * @param color Color to be shown on chart
+     */
+    public void setColor(C3Color color) {
         fire(id, new Change(EVENT_DATA_CHART_COLOR, color));
         this.color = color;
     }

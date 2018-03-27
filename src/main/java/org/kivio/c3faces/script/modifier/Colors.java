@@ -22,6 +22,8 @@ import org.kivio.c3faces.script.ObjectBlock;
 import org.kivio.c3faces.script.Property;
 import org.kivio.c3faces.script.ValueBlock;
 import org.kivio.c3faces.script.property.Data;
+import org.kivio.c3faces.style.C3Color;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -45,7 +47,7 @@ public class Colors extends Modifier {
         if (getPropertyLastChange(Data.EVENT_VIEW_DATA_SET_ADDED) != null) {
             Set<C3ViewDataSet> load = (Set<C3ViewDataSet>) getPropertyChangeSet(Data.EVENT_VIEW_DATA_SET_ADDED);
             for (C3ViewDataSet dataSet : load) {
-                objProp.addChild(new ValueBlock(dataSet.getId(), dataSet.getColor(), true));
+                objProp.addChild(new ValueBlock(dataSet.getId(), dataSet.getColor().getHexCode(), true));
             }
         }
 
@@ -53,7 +55,8 @@ public class Colors extends Modifier {
             for (Object ch : change.getChangeSet()) {
                 Change propertyChange = (Change) ch;
                 if (propertyChange.getName().equals(C3ViewDataSet.EVENT_DATA_CHART_COLOR)) {
-                    objProp.addChild(new ValueBlock(change.getName(), (String) propertyChange.getLastChange(), true));
+                    String hexCode = ((C3Color) propertyChange.getLastChange()).getHexCode();
+                    objProp.addChild(new ValueBlock(change.getName(), hexCode, true));
                 }
             }
 

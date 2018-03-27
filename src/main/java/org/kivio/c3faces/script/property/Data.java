@@ -20,6 +20,7 @@ import org.kivio.c3faces.model.C3ViewDataSet;
 import org.kivio.c3faces.script.ArrayBlock;
 import org.kivio.c3faces.script.ObjectBlock;
 import org.kivio.c3faces.script.ValueBlock;
+import org.kivio.c3faces.style.C3Theme;
 import org.kivio.c3faces.util.JSTools;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -46,7 +47,6 @@ public class Data extends ObjectBlock {
     private boolean selection = true;
     private final C3ViewDataObservableSet dataSetsObserver
             = new C3ViewDataObservableSet(new LinkedHashSet<C3ViewDataSet>(), EVENT_VIEW_DATA_SET_ADDED, EVENT_VIEW_DATA_SET_REMOVED);
-
     public Data() {
         dataSetsObserver.setListeners(getListeners());
     }
@@ -69,7 +69,7 @@ public class Data extends ObjectBlock {
 
         for (C3ViewDataSet data : dataSetsObserver) {
             namesObj.addChild(new ValueBlock(data.getId(), data.getName(), true));
-            colorsObj.addChild(new ValueBlock(data.getId(), data.getColor(), true));
+            colorsObj.addChild(new ValueBlock(data.getId(), data.getColor().getHexCode(), true));
             if (data.getType() != null) {
                 typesObj.addChild(new ValueBlock(data.getId(), data.getType(), true));
             }

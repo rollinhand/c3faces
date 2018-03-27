@@ -11,6 +11,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.kivio.c3faces.style.C3Color;
 
 public class ColorsTest {
 
@@ -29,8 +30,8 @@ public class ColorsTest {
         data.addListener(colors);
         data.setDataSets(new LinkedHashSet<>(Arrays.asList(c3ViewDataSet)));
 
-        c3ViewDataSet.setColor("green");
+        c3ViewDataSet.setColor(C3Color.GREEN);
 
-        assertEquals(StringUtils.deleteWhitespace("chart.data.colors({" + c3ViewDataSet.getId() + ": 'green'});"), StringUtils.deleteWhitespace(colors.getScript("chart", 500)));
+        assertEquals(StringUtils.deleteWhitespace("chart.data.colors({" + c3ViewDataSet.getId() + ": '#70ad47'});"), StringUtils.deleteWhitespace(colors.getScript("chart", 500)));
     }
 }

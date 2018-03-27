@@ -1,6 +1,19 @@
 # C3Faces Changelog
 This is the official changelog for C3Faces JSF library.
 
+## 1.3
+This is a small enhancement release containing the following updates:
+
+- Extended faces-config.xml declaring _components_ from the taglib matching
+requirements defined by older versions of JSF and Spring Boot. Background
+information demanding this fix can be found
+[here](https://docs.oracle.com/cd/E19575-01/819-3669/bnawo/index.html).
+- It is now possible to select pre-defined colors and themes for much
+more harmonius colours in charts. Therefore the classes _C3Color_ and
+_C3Theme_ were introduced. _C3Theme_ contains themes used in Microsoft Excel
+or LibreOffice Spreadsheet. Showcase does not reflect this change so feel free
+playing around with this classes.
+
 ## 1.2
 Bugfix for categories
 
