@@ -92,4 +92,13 @@ public class AxisTest {
 
         assertEquals(StringUtils.deleteWhitespace("axis:{y:{type:'category',categories:['category 1', 'category 2', 'category 3']}}"), StringUtils.deleteWhitespace(axis.getScript()));
     }
+
+    @Test
+    public void testEmptyCategoriesXAxis() {
+        Axis axis = new Axis();
+        axis.setCategoriesX(null);
+        axis.setTypeX(Axis.Type.CATEGORY);
+
+        assertEquals(StringUtils.deleteWhitespace("axis:{x:{type:'category'}}"), StringUtils.deleteWhitespace(axis.getScript()));
+    }
 }

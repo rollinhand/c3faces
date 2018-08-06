@@ -15,7 +15,7 @@
  **/
 package org.kivio.c3faces.component.property;
 
-import org.kivio.c3faces.model.C3Category;
+import org.kivio.c3faces.model.C3CategorySet;
 import org.kivio.c3faces.script.Property;
 import org.kivio.c3faces.script.property.Axis;
 import org.kivio.c3faces.util.ComponentUtil;
@@ -62,7 +62,7 @@ public class AxesProperty extends C3Property {
     }
 
     /**
-     * Get Set of categories from {@link C3Category}.
+     * Get Set of categories from {@link C3CategorySet}.
      * @param o attributes input.
      * @return Set or null.
      */
@@ -71,6 +71,6 @@ public class AxesProperty extends C3Property {
             return Collections.emptySet();
         }
 
-        return (o instanceof C3Category) ? ((C3Category)o).getValues() : null;
+        return (o instanceof C3CategorySet) ? ((C3CategorySet)o).getValues() : null;
     }
 }

@@ -47,6 +47,7 @@ public class C3ViewDataSet implements Serializable {
     private String name;
     private String type;
     private C3DataSet dataSet;
+    private C3CategorySet categorySet;
 
     /**
      * Constructor which also creates and sets unique id.
@@ -88,6 +89,16 @@ public class C3ViewDataSet implements Serializable {
         this.name = name;
         this.dataSet = dataSet;
         this.color = color;
+        this.id = RandomStringUtils.randomAlphabetic(RANDOM_ID_LENGTH);
+    }
+
+    /**
+     * Constructor which creates categories for x axis and sets unique id.
+     *
+     * @param categorySet series with x axis values.
+     */
+    public C3ViewDataSet(C3CategorySet categorySet) {
+        this.categorySet = categorySet;
         this.id = RandomStringUtils.randomAlphabetic(RANDOM_ID_LENGTH);
     }
 
@@ -204,6 +215,25 @@ public class C3ViewDataSet implements Serializable {
     }
 
     /**
+     * Returns category set with values rendered on x axis.
+     *
+     * @return category set with values.
+     */
+    public C3CategorySet getCategorySet() {
+        return categorySet;
+    }
+
+    /**
+     * Set new category set with values to be rendered on x axis. Fires data changed event.
+     *
+     * @param categorySet new category set.
+     */
+    public void setCategorySet(C3CategorySet categorySet) {
+        fire(id, new Change(EVENT_DATA_SET_CHANGE, this));
+        this.categorySet = categorySet;
+    }
+
+    /**
      * Method which notify all listeners with changes made to this class. Change is cumulatible, ie. it saves all changes, not only last change. Fires
      * corresponding event.
      *
@@ -223,5 +253,13 @@ public class C3ViewDataSet implements Serializable {
      */
     public void setListeners(List<ChangeListener> listeners) {
         this.listeners = listeners;
+    }
+
+    public boolean isCategorySet() {
+        return categorySet != null;
+    }
+
+    public boolean hasValidDataSet() {
+        return (getDataSet() != null && getDataSet().getValues() != null && !getDataSet().getValues().isEmpty());
     }
 }

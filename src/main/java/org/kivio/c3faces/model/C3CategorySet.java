@@ -22,20 +22,23 @@ import java.util.*;
  *
  * @author Bjoern Berg, rollin.hand@gmx.de
  * @since 2018-01-21
- * @deprecated use {@link C3CategorySet}
  */
-public class C3Category {
-    private final Set<String> categories;
+public class C3CategorySet {
+    private final Set<String> values;
 
-    public C3Category(String[] input) {
+    public C3CategorySet(String[] input) {
         this(Arrays.asList(input));
     }
 
-    public C3Category(List<String> input) {
-        categories = Collections.unmodifiableSet(new LinkedHashSet<>(input));
+    public C3CategorySet(List<String> input) {
+        this.values = Collections.unmodifiableSet(new LinkedHashSet<>(input));
     }
 
+    /**
+     * Categories should be unique values.
+     * @return set with unique values.
+     */
     public Set<String> getValues() {
-        return categories;
+        return values;
     }
 }

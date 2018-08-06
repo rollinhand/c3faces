@@ -27,8 +27,7 @@ import java.util.List;
  * @author Martin Linha
  */
 public class C3DataSet {
-
-    private final List<? extends Number> values;
+    private List<? extends Number> values;
 
     public C3DataSet(List<? extends Number> values) {
         this.values = Collections.unmodifiableList(values);

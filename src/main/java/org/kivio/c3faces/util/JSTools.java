@@ -177,7 +177,7 @@ public class JSTools {
         List<C3ViewDataSet> seriesList = new ArrayList<>(series);
         for (int i = 0; i < seriesList.size(); i++) {
             C3ViewDataSet d = seriesList.get(i);
-            if (d.getDataSet() == null || d.getDataSet().getValues() == null || d.getDataSet().getValues().isEmpty()) {
+            if (!d.hasValidDataSet() && !d.isCategorySet()) {
                 continue;
             }
             if (i > 0) {
@@ -186,10 +186,17 @@ public class JSTools {
             sb.append("['");
             sb.append(d.getId());
             sb.append("'");
-            if (d.getDataSet().getValues().size() > 0) {
+
+            if (d.isCategorySet()) {
                 sb.append(", ");
+                sb.append(JSTools.commaSeparatedStringsQuoted(d.getCategorySet().getValues()));
+            } else {
+                if (d.getDataSet().getValues().size() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(JSTools.commaSeparatedNumbers(d.getDataSet().getValues()));
             }
-            sb.append(JSTools.commaSeparatedNumbers(d.getDataSet().getValues()));
+
             sb.append("]");
         }
 

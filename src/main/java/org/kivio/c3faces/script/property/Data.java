@@ -16,6 +16,7 @@
 package org.kivio.c3faces.script.property;
 
 import org.kivio.c3faces.listener.C3ViewDataObservableSet;
+import org.kivio.c3faces.model.C3CategorySet;
 import org.kivio.c3faces.model.C3ViewDataSet;
 import org.kivio.c3faces.script.ArrayBlock;
 import org.kivio.c3faces.script.ObjectBlock;
@@ -68,10 +69,14 @@ public class Data extends ObjectBlock {
         typesObj.setName("types");
 
         for (C3ViewDataSet data : dataSetsObserver) {
-            namesObj.addChild(new ValueBlock(data.getId(), data.getName(), true));
-            colorsObj.addChild(new ValueBlock(data.getId(), data.getColor().getHexCode(), true));
-            if (data.getType() != null) {
-                typesObj.addChild(new ValueBlock(data.getId(), data.getType(), true));
+            if (!data.isCategorySet()) {
+                // categories do not have colors or names, so we do not want to
+                // produce any null pointer exceptions
+                namesObj.addChild(new ValueBlock(data.getId(), data.getName(), true));
+                colorsObj.addChild(new ValueBlock(data.getId(), data.getColor().getHexCode(), true));
+                if (data.getType() != null) {
+                    typesObj.addChild(new ValueBlock(data.getId(), data.getType(), true));
+                }
             }
         }
         addChild(namesObj);
