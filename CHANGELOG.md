@@ -1,6 +1,43 @@
 # C3Faces Changelog
 This is the official changelog for C3Faces JSF library.
 
+## 1.4
+This is a small enhancement release containing the following updates:
+
+Fixes bug #2 which reflects not updating categories on dynamic changes.
+Using the _axis_ attribute with categories will still keep fixed category names
+until the whole diagram is reloaded.
+If you want to react on dynamic changes, use the _axis_ attribute without
+fixed category names and use the newly introduced _Xkey_ class to define
+dynamic category names for X-axis (it is only available for X-axis).
+
+An example for clarification:
+
+**JSF**:
+
+```
+<c3:line id="chart" data="#{dashboardViewBean.data}" >
+	<c3:axes>
+		<c3:axisX type="category" />
+	</c3:axes>
+</c3:line>
+```
+
+**Bean**:
+
+```
+private final Data data = new Data();
+...
+
+// New dynamic view for categories on X-axis
+C3ViewDataSet categoriesView = new C3ViewDataSet(getMonths());
+data.getDataSets().add(categoriesView);
+data.addChild(new XKey(categoriesView.getId()));
+```
+
+This is it. After new data is added, you have to refresh the C3ViewDataSet
+programmatically.
+
 ## 1.3
 This is a small enhancement release containing the following updates:
 
